@@ -1,3 +1,12 @@
+<?php
+
+if (isset($_GET["password-length"]) && $_GET["password-length"] >= 8) {
+    $passwordLength = (int)$_GET["password-length"];
+    var_dump($passwordLength); 
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +31,7 @@
                             <div class="form-group row align-items-center">
                                 <label class="col-form-label col-sm-4 fw-bolder text-sm-end" for="password-length">Lunghezza Password:</label>
                                 <div class="col-sm-8">
-                                    <input id="password-length" class="form-control form-control-sm fw-bolder" type="number" min="8" max="20" placeholder="Scegli una cifra da 8 a 20, per decidere quanto sarà lunga la tua password!">
+                                    <input id="password-length" name="password-length"class="form-control form-control-sm fw-bolder" type="number" min="8" max="20" placeholder="Scegli una cifra da 8 a 20, per decidere quanto sarà lunga la tua password!">
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
