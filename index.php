@@ -1,11 +1,18 @@
 <?php
 
-if (isset($_GET["password-length"]) && $_GET["password-length"] >= 8) {
-    $passwordLength = (int)$_GET["password-length"];
-    var_dump($passwordLength); 
-}
-?>
+if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
+    if (!is_numeric($_GET["password-length"])) {
+        $message = "Devi inserire un numero";
+    } elseif ($_GET["password-length"] < 8) {
+        $message = "Devi inserire un valore maggiore o uguale a 8";
+    }
 
+    if (isset($message)) {
+        var_dump($message);
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,26 +26,26 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] >= 8) {
     <div class="container">
         <div class="row">
             <div class="col-12 border text-center mt-2">
-                <h2> Strong Password Generator</h2>
-                <h3> Genera una password sicura</h3>
+                <h2>Strong Password Generator</h2>
+                <h3>Genera una password sicura</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-12 border">
                 <div class="rounded">
-                    <form action="./index.php" method ="GET">
+                    <form action="./index.php" method="GET">
                         <div class="col-12 py-4 px-4">
                             <div class="form-group row align-items-center">
                                 <label class="col-form-label col-sm-4 fw-bolder text-sm-end" for="password-length">Lunghezza Password:</label>
                                 <div class="col-sm-8">
-                                    <input id="password-length" name="password-length"class="form-control form-control-sm fw-bolder" type="number" min="8" max="20" placeholder="Scegli una cifra da 8 a 20, per decidere quanto sarà lunga la tua password!">
+                                    <input id="password-length" name="password-length" class="form-control form-control-sm fw-bolder" type="number" max="20" placeholder="Scegli una cifra da 8 a 20, per decidere quanto sarà lunga la tua password!">
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <div class="col-sm-8">
                                     <button type="submit" class="btn btn-primary fw-bold">Genera Password</button>
-                                 </div>
-                             </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
