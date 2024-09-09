@@ -9,22 +9,28 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
 
     if (isset($message)) {
         var_dump($message);
+    } else {
+        // Creo la stringa per recuperare i caratteri //
+        $basestring = 'abcdefghijklmnopqrstuvwxyz' . strtoupper('abcdefghijklmnopqrstuvwxyz') . '0123456789' . '!@#$%^&*()-_=+[]{}|;:,.<>?/~';
+
+        var_dump($basestring);
+
+        // Definisco la stringa Password //
+        $password = '';
+
+        // Ciclo for per generare la password della lunghezza richiesta
+        for ($i = 0; $i < $_GET['password-length']; $i++) {
+            $randomindex = rand(0, strlen($basestring) - 1);
+            $password .= $basestring[$randomindex];
+        }
+
+        var_dump($password); // stampare la password generata //
     }
-
-   // Creo la stringa per recuperare i caratteri //
-   $basestring = 'abcdefghijklmnopqrstuvwxyz' . strtoupper('abcdefghijklmnopqrstuvwxyz') . '0123456789' . '!@#$%^&*()-_=+[]{}|;:,.<>?/~';
-
-   var_dump($basestring);
-
-   // Genero un valore numerico randomico per basestring//
-   $randomindex =rand(0,strlen($basestring)-1);
-
-   // Definisco la stringa Password //
-
-   $password ='';
 }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
