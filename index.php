@@ -10,6 +10,11 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
     if (isset($message)) {
         var_dump($message);
     }
+
+   // Creo la stringa per recuperare i caratteri //
+   $basestring = 'abcdefghijklmnopqrstuvwxyz' . strtoupper('abcdefghijklmnopqrstuvwxyz') . '0123456789' . '!@#$%^&*()-_=+[]{}|;:,.<>?/~';
+
+   var_dump($basestring);
 }
 
 ?>
