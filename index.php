@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
     if (!is_numeric($_GET["password-length"])) {
         $message = "Devi inserire un numero";
@@ -10,12 +9,10 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
     if (isset($message)) {
         var_dump($message);
     } else {
-        // Creo la stringa per recuperare i caratteri //
+        // Creo la stringa per recuperare i caratteri
         $basestring = 'abcdefghijklmnopqrstuvwxyz' . strtoupper('abcdefghijklmnopqrstuvwxyz') . '0123456789' . '!@#$%^&*()-_=+[]{}|;:,.<>?/~';
 
-        var_dump($basestring);
-
-        // Definisco la stringa Password //
+        // Definisco la stringa Password
         $password = '';
 
         // Ciclo for per generare la password della lunghezza richiesta
@@ -23,14 +20,9 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
             $randomindex = rand(0, strlen($basestring) - 1);
             $password .= $basestring[$randomindex];
         }
-
-        var_dump($password); // stampare la password generata //
     }
 }
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,9 +58,15 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
                             </div>
                         </div>
                     </form>
+
+                    <?php if (isset($password)): ?>
+                        <p class="mt-3">La tua password generata è: <strong><?php echo $password; ?></strong></p>
+                    <?php endif; ?>
+                    
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
