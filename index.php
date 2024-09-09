@@ -15,6 +15,13 @@ if (isset($_GET["password-length"]) && $_GET["password-length"] != '') {
    $basestring = 'abcdefghijklmnopqrstuvwxyz' . strtoupper('abcdefghijklmnopqrstuvwxyz') . '0123456789' . '!@#$%^&*()-_=+[]{}|;:,.<>?/~';
 
    var_dump($basestring);
+
+   // Genero un valore numerico randomico per basestring//
+   $randomindex =rand(0,strlen($basestring)-1);
+
+   // Definisco la stringa Password //
+
+   $password ='';
 }
 
 ?>
